@@ -1,0 +1,63 @@
+name: Release Plugin
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build and publish plugin release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+
+      - name: Verify tag matches plugin version
+        shell: bash
+        run: |
+          set -euo pipefail
+          version="$(python3 - <<'PY'
+          import json
+          from pathlib import Path
+          manifest = Path('plugins/marv-server-engineering/.codex-plugin/plugin.json')
+          print(json.loads(manifest.read_text(encoding='utf-8'))['version'])
+          PY
+          )"
+          expected="v${version}"
+          if [[ "${GITHUB_REF_NAME}" != "${expected}" ]]; then
+            echo "Tag ${GITHUB_REF_NAME} does not match plugin version ${version}; expected ${expected}." >&2
+            exit 1
+          fi
+
+      - name: Validate distribution package
+        run: python3 scripts/validate_plugin.py --check-urls
+
+      - name: Build release archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          archive="dist/marv-server-engineering-${GITHUB_REF_NAME}.zip"
+          zip -r "${archive}" plugins/marv-server-engineering \
+            -x '*/.DS_Store' '*/__pycache__/*' '*.pyc'
+          sha256sum "${archive}" > "${archive}.sha256"
+          echo "ARCHIVE=${archive}" >> "${GITHUB_ENV}"
+
+      - name: Publish GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh release create "${GITHUB_REF_NAME}" \
+            "${ARCHIVE}" \
+            "${ARCHIVE}.sha256" \
+            --verify-tag \
+            --title "MARV Server Engineering ${GITHUB_REF_NAME}" \
+            --notes-file plugins/marv-server-engineering/submission/RELEASE_NOTES.md
