@@ -1,0 +1,20 @@
+{
+  "name": "marvserver",
+  "interface": {
+    "displayName": "MARVserver"
+  },
+  "plugins": [
+    {
+      "name": "minecraft-server-engineering",
+      "source": {
+        "source": "local",
+        "path": "./plugins/minecraft-server-engineering"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

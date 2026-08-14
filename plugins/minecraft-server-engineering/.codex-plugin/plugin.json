@@ -1,0 +1,42 @@
+{
+  "name": "minecraft-server-engineering",
+  "version": "0.1.0",
+  "description": "Minecraft server engineering and operations workflows spanning extension development, infrastructure, reliability, security, LiveOps, moderation, commerce, and analytics.",
+  "author": {
+    "name": "MARVserver",
+    "url": "https://github.com/MARVserver"
+  },
+  "homepage": "https://github.com/MARVserver/skills",
+  "repository": "https://github.com/MARVserver/skills",
+  "license": "MIT",
+  "keywords": [
+    "minecraft",
+    "paper",
+    "purpur",
+    "velocity",
+    "plugins",
+    "server-operations",
+    "devops",
+    "liveops"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Minecraft Server Engineering",
+    "shortDescription": "Build, operate, secure, and run production Minecraft servers",
+    "longDescription": "Production-oriented workflows for Minecraft server engineering and operations, including plugin and mod development, server and proxy administration, performance, observability, backup and recovery, incident response, security, moderation, staff and player operations, LiveOps, commerce, and analytics.",
+    "developerName": "MARVserver",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/MARVserver/skills",
+    "defaultPrompt": [
+      "Build or review a production Minecraft plugin.",
+      "Diagnose and safely fix a Minecraft server incident.",
+      "Plan server operations, moderation, LiveOps, or economy changes."
+    ],
+    "brandColor": "#2E7D32",
+    "screenshots": []
+  }
+}
