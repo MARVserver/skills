@@ -1,0 +1,37 @@
+name: Export .skills bundle
+
+on:
+  push:
+    branches:
+      - artifact/export-skills-file
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Validate skill pack
+        run: python3 scripts/validate_plugin.py
+
+      - name: Build .skills bundle
+        run: |
+          cd plugins
+          zip -r -q ../marv-server-engineering.skills marv-server-engineering
+          cd ..
+          test -s marv-server-engineering.skills
+          unzip -t marv-server-engineering.skills
+
+      - name: Upload .skills bundle
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: marv-server-engineering-skills
+          path: marv-server-engineering.skills
+          if-no-files-found: error
+          compression-level: 0
