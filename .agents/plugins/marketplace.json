@@ -5,10 +5,10 @@
   },
   "plugins": [
     {
-      "name": "minecraft-server-engineering",
+      "name": "marv-server-engineering",
       "source": {
         "source": "local",
-        "path": "./plugins/minecraft-server-engineering"
+        "path": "./plugins/marv-server-engineering"
       },
       "policy": {
         "installation": "AVAILABLE",
