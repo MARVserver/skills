@@ -1,13 +1,13 @@
 {
   "name": "marv-server-engineering",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Production workflows for building, operating, securing, and managing Minecraft servers across development, infrastructure, reliability, LiveOps, moderation, commerce, and analytics.",
   "author": {
     "name": "MARVserver",
     "email": "marvsystem@gmail.com",
     "url": "https://marvgame.com"
   },
-  "homepage": "https://marvgame.com",
+  "homepage": "https://github.com/MARVserver/skills",
   "repository": "https://github.com/MARVserver/skills",
   "license": "MIT",
   "keywords": [
@@ -23,7 +23,7 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "MARV Server Engineering for Minecraft",
-    "shortDescription": "Build and operate production Minecraft servers with MARV workflows",
+    "shortDescription": "Build and operate production Minecraft servers",
     "longDescription": "Production-oriented workflows from MARVserver for plugin and mod development, server and proxy administration, performance, observability, backup and recovery, incident response, security, moderation, staff and player operations, LiveOps, commerce, and analytics. NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.",
     "developerName": "MARVserver",
     "category": "Developer Tools",
@@ -31,15 +31,10 @@
       "Interactive",
       "Write"
     ],
-    "websiteURL": "https://marvgame.com",
-    "privacyPolicyURL": "https://github.com/MARVserver/skills/blob/main/PRIVACY.md",
-    "termsOfServiceURL": "https://marvgame.com/en-US/terms-of-service",
     "defaultPrompt": [
       "Review a production Paper plugin for correctness, threading, security, and performance risks.",
-      "Diagnose a Minecraft server incident and produce a safe evidence-first recovery and rollback plan.",
+      "Diagnose a Minecraft server incident and produce a safe recovery and rollback plan.",
       "Plan a server release, event, moderation, economy, or operations change with verification."
-    ],
-    "brandColor": "#2E7D32",
-    "screenshots": []
+    ]
   }
 }
