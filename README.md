@@ -1,15 +1,45 @@
 # MARV Server Engineering for Minecraft
 
-A production-oriented OpenAI plugin from MARVserver for engineering and operating Minecraft servers.
+A production-oriented OpenAI/Codex plugin from MARVserver for engineering and operating Minecraft servers.
 
 > **NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.**
 
-The plugin is currently **skills-only**. It bundles 31 domain skills plus an `index` router and does not require a MARVserver-operated MCP server, RCON endpoint, hosting panel, database, or other external integration.
+The plugin is currently **skills-only**. It bundles 31 domain skills plus an `index` router and does not require a MARVserver-operated MCP server, RCON endpoint, hosting panel, database, telemetry backend, or other external integration.
+
+## Install from the public repository
+
+Codex can add a GitHub `owner/repo` directly as a plugin marketplace source. With a current Codex CLI:
+
+```bash
+codex plugin marketplace add MARVserver/skills
+codex plugin add marv-server-engineering@marvserver
+codex plugin list
+```
+
+Start a new Codex thread after installation so the newly installed skills are picked up cleanly.
+
+The repository marketplace entry is:
+
+```text
+marv-server-engineering@marvserver
+```
+
+## Public policy and support
+
+- [Privacy Policy](PRIVACY.md)
+- [Support](SUPPORT.md)
+- [Terms of Service](https://marvgame.com/en-US/terms-of-service)
+- [Publisher website](https://marvgame.com)
+- [GitHub Issues](https://github.com/MARVserver/skills/issues)
+
+Version `0.2.0` is skills-only. Installing or invoking it does not by itself send prompts, files, conversations, server credentials, player data, or execution telemetry to a MARVserver-operated Plugin backend because no such backend is bundled.
 
 ## Plugin source
 
 ```text
 .agents/plugins/marketplace.json
+PRIVACY.md
+SUPPORT.md
 plugins/
 └── marv-server-engineering/
     ├── .codex-plugin/plugin.json
@@ -18,7 +48,6 @@ plugins/
     ├── assets/README.md
     ├── submission/
     │   ├── LISTING.md
-    │   ├── PRIVACY_POLICY_DRAFT.md
     │   ├── RELEASE_NOTES.md
     │   ├── SUBMISSION_CHECKLIST.md
     │   └── TEST_CASES.md
@@ -74,20 +103,17 @@ plugins/
 
 ## Distribution status
 
-The repository now includes the material needed to prepare a skills-only public Plugin Directory submission: listing copy, three starter prompts, positive/negative review cases, release notes, and a submission checklist.
+### Codex
 
-Two publisher-controlled items intentionally remain outside the code bundle:
+The plugin is distributable directly from this public GitHub repository through the repository marketplace shown above.
 
-1. approve and publish a dedicated privacy policy with real MARVserver retention practices;
-2. provide a MARV-owned logo asset for the public listing.
+### ChatGPT Plugin Directory
 
-OpenAI developer/business verification and the required Platform permissions must also be completed by the submitting account before public review.
+OpenAI's current Plugin model can contain skills without requiring an app. This repository contains listing copy, starter prompts, release notes, and QA cases for a future public-directory handoff. Publishing to the global Plugin Directory is a separate OpenAI-side publishing/submission action; making this GitHub repository public does not automatically create a global Plugin Directory listing.
 
-See [`submission/SUBMISSION_CHECKLIST.md`](plugins/marv-server-engineering/submission/SUBMISSION_CHECKLIST.md) for the final handoff.
+`submission/TEST_CASES.md` contains five positive and three negative QA cases. That count mirrors OpenAI's documented ChatGPT **app** submission review format and is useful for regression testing, but this repository does not claim that the same count is a mandatory requirement for every skills-only Plugin submission.
 
-## Local/repository marketplace
-
-After cloning the repository, the repo-local marketplace identifies the plugin as `marv-server-engineering@marvserver`.
+See [`submission/SUBMISSION_CHECKLIST.md`](plugins/marv-server-engineering/submission/SUBMISSION_CHECKLIST.md) for the remaining handoff items.
 
 ## Safety model
 
@@ -95,4 +121,4 @@ The skills use version-aware compatibility checks, least privilege, backup/rollb
 
 ## Future app/MCP layer
 
-Optional integrations can later add RCON, Pterodactyl or other panels, GitHub, Discord, Prometheus/Grafana, databases, object storage, and deployment systems without changing the domain skill model.
+Optional integrations can later add RCON, Pterodactyl or other panels, GitHub, Discord, Prometheus/Grafana, databases, object storage, and deployment systems without changing the domain skill model. If a MARVserver-operated backend is added, update the Privacy Policy and listing before release.
