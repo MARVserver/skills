@@ -1,0 +1,31 @@
+name: Validate Plugin
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-plugin-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate distribution package
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Validate plugin structure and metadata
+        run: python3 scripts/validate_plugin.py
+
+      - name: Verify public distribution URLs
+        run: python3 scripts/validate_plugin.py --check-urls
