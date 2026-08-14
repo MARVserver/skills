@@ -13,32 +13,37 @@ This checklist separates repository work from publisher/account actions that can
 - [x] At least five positive review test cases are prepared.
 - [x] At least three negative review test cases are prepared.
 - [x] Initial release notes are prepared.
-- [x] Website, publisher email, support-page candidate, and terms URL are documented.
+- [x] Website, publisher email, support URL, terms URL, and privacy URL are documented.
+- [x] Canonical Privacy Policy is present at repository root as `PRIVACY.md`.
+- [x] Plugin-specific support guidance is present at repository root as `SUPPORT.md`.
 - [x] No MARVserver-operated MCP/app backend is required for version 0.2.0.
 
-## Publisher-controlled blockers — required before public submission
+## Public-source gate
 
-- [ ] Approve a dedicated plugin privacy policy after confirming real data recipients, retention periods, user-control process, and security practices.
-- [ ] Publish that policy at a stable public HTTPS URL and add it to the OpenAI listing/manifest.
-- [ ] Supply an original MARVserver-owned square logo and upload it for the listing; do not use Minecraft/Mojang/Microsoft brand assets.
-- [ ] Verify that the public support URL works and exposes an acceptable contact path; keep `marvsystem@gmail.com` as the direct publisher contact.
+- [ ] Repository visibility is Public.
+- [ ] Confirm https://github.com/MARVserver/skills is readable while signed out.
+- [ ] Confirm https://github.com/MARVserver/skills/blob/main/PRIVACY.md is readable while signed out after this PR is merged.
+- [ ] Confirm https://github.com/MARVserver/skills/issues is available as the public support page.
+
+## Publisher-controlled items
+
+- [ ] Supply an original MARVserver-owned square logo for the listing; do not use Minecraft/Mojang/Microsoft brand assets.
+- [ ] Review the final Privacy Policy and Terms URLs as publisher policy before submission.
 - [ ] Select countries/regions based on actual support and legal readiness.
 
-## OpenAI Platform account — required before review
+## OpenAI account / submission
 
-- [ ] Complete the developer/business identity verification required by OpenAI for public publishing.
-- [ ] Ensure the submitting account has the required Apps Management write permission.
-- [ ] Create a new plugin submission and choose **Skills only**.
-- [ ] Upload the final skill bundle and listing data.
-- [ ] Enter the starter prompts, positive/negative review cases, availability, and release notes.
-- [ ] Submit for OpenAI review.
-- [ ] After approval, perform the separate publish action when the portal makes it available.
+- [ ] Confirm the submitting OpenAI account/workspace has access to the current Plugin publishing/submission flow.
+- [ ] Create the public submission as **Skills only** where that option is available.
+- [ ] Use the listing copy and starter prompts from `submission/LISTING.md`.
+- [ ] Run and record the positive/negative cases from `submission/TEST_CASES.md` against the exact release bundle.
+- [ ] Supply availability and release notes.
+- [ ] Submit for review/publishing through the current OpenAI Plugin workflow.
 
 ## Pre-submit quality gate
 
-- [ ] Run all positive and negative test cases against the exact bundle being submitted.
 - [ ] Recheck every public URL from an unauthenticated browser.
 - [ ] Confirm no credentials, private hostnames, production IPs, player PII, or confidential internal material are included.
-- [ ] Confirm all claims in the listing match the current skills-only capabilities.
-- [ ] Confirm the privacy policy and retention commitments match real operations.
+- [ ] Confirm all listing claims match the current skills-only capabilities.
+- [ ] Confirm the Privacy Policy still matches the actual data flow; update it before any future MARVserver-operated app/MCP/telemetry backend is enabled.
 - [ ] Confirm the Minecraft non-affiliation notice remains prominent.

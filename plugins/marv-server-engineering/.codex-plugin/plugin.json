@@ -32,6 +32,7 @@
       "Write"
     ],
     "websiteURL": "https://marvgame.com",
+    "privacyPolicyURL": "https://github.com/MARVserver/skills/blob/main/PRIVACY.md",
     "termsOfServiceURL": "https://marvgame.com/en-US/terms-of-service",
     "defaultPrompt": [
       "Review a production Paper plugin for correctness, threading, security, and performance risks.",
