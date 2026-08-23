@@ -26,3 +26,6 @@ jobs:
 
       - name: Validate marketplace, manifest, and skills
         run: python3 scripts/validate_plugin.py
+
+      - name: Validate Agents SDK distribution
+        run: python3 scripts/validate_agents_sdk.py
