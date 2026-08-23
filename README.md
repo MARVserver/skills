@@ -36,6 +36,28 @@ marv-server-engineering@marvserver
 
 See [`INSTALL.md`](INSTALL.md) for the short installation guide.
 
+## OpenAI Agents SDK
+
+The same reviewed skill catalog can be mounted in the OpenAI Agents SDK without publisher-owned hosted Skill IDs. The included runner packages the committed skills as inline Skill bundles and uses an OpenAI-hosted shell container with network access disabled by default.
+
+```bash
+python -m pip install -r requirements-agent-sdk.txt
+export OPENAI_API_KEY="..."
+python examples/agents_sdk_marketplace.py \
+  "Review my production Paper plugin architecture and deployment plan."
+```
+
+To restrict the agent to a smaller reviewed surface:
+
+```bash
+python examples/agents_sdk_marketplace.py \
+  --skill minecraft-plugin-development \
+  --skill minecraft-plugin-security \
+  "Review this plugin design."
+```
+
+See [`AGENTS_SDK.md`](AGENTS_SDK.md) for architecture, usage, hosted Skill IDs, and the security boundary.
+
 ## Coverage
 
 ### Development and engineering
@@ -85,7 +107,11 @@ See [`INSTALL.md`](INSTALL.md) for the short installation guide.
 
 ```text
 .agents/plugins/marketplace.json
+AGENTS_SDK.md
 INSTALL.md
+requirements-agent-sdk.txt
+examples/
+└── agents_sdk_marketplace.py
 plugins/
 └── marv-server-engineering/
     ├── .codex-plugin/plugin.json
