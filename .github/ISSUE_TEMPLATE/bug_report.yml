@@ -1,0 +1,64 @@
+name: Bug report
+description: Report incorrect, broken, or unsafe behavior in the skill pack
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a reproducible problem. For security vulnerabilities, stop here and follow SECURITY.md instead.
+  - type: input
+    id: component
+    attributes:
+      label: Affected skill or component
+      description: Name the skill, validator, installer, workflow, or file involved.
+      placeholder: minecraft-server-operations
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: Describe what is incorrect or broken and why it matters.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction steps
+      description: Give the smallest sequence that reproduces the problem.
+      placeholder: |
+        1. Install ...
+        2. Ask the skill to ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment and versions
+      description: Include relevant Minecraft, Java, server/proxy/mod-loader, plugin, Codex, and OS versions.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Logs, output, or references
+      description: Add sanitized evidence. Remove credentials, tokens, private addresses, and player data.
+      render: text
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I checked the latest main branch or current plugin version.
+          required: true
+        - label: This is not a security vulnerability.
+          required: true
+        - label: I removed secrets, credentials, and unnecessary player data from the report.
+          required: true
