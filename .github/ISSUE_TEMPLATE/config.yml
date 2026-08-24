@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions and troubleshooting
+    url: https://github.com/MARVserver/skills/discussions/categories/q-a
+    about: Ask implementation, usage, and troubleshooting questions in Discussions.
+  - name: Ideas and skill proposals
+    url: https://github.com/MARVserver/skills/discussions/categories/ideas
+    about: Discuss new skills and substantial design changes before implementation.
+  - name: Security policy
+    url: https://github.com/MARVserver/skills/security/policy
+    about: Read the security policy before reporting a vulnerability.

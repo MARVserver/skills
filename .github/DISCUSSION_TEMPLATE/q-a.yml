@@ -1,0 +1,39 @@
+title: "[Q&A] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this category for questions, troubleshooting, and clarification. If you can reproduce a repository defect, use the Bug report issue form instead.
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+      description: State the exact outcome you are trying to achieve or understand.
+    validations:
+      required: true
+  - type: input
+    id: skill
+    attributes:
+      label: Relevant skill or component
+      placeholder: minecraft-plugin-development
+  - type: textarea
+    id: context
+    attributes:
+      label: Context and environment
+      description: Include relevant Minecraft, Java, server/proxy/mod-loader, plugin, Codex, and OS versions.
+    validations:
+      required: true
+  - type: textarea
+    id: tried
+    attributes:
+      label: What you already tried
+      description: Include commands, configuration, output, or references after removing sensitive data.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before posting
+      options:
+        - label: I searched existing documentation, issues, and discussions.
+          required: true
+        - label: I removed secrets, credentials, private infrastructure details, and unnecessary player data.
+          required: true
