@@ -1,0 +1,51 @@
+title: "[Idea] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this category for new skills, significant capability changes, and design proposals. Confirmed implementation bugs belong in Issues.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Proposal type
+      options:
+        - New skill
+        - Existing skill improvement
+        - Repository or validation workflow
+        - Documentation or contributor experience
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+      description: Describe the concrete Minecraft engineering or operations need.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed approach
+      description: Explain the behavior, scope, and expected output at a useful level of detail.
+    validations:
+      required: true
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Versions, constraints, and risks
+      description: Note compatibility, security, privacy, operational, or maintenance constraints.
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives or existing approaches
+      description: Link related skills, issues, discussions, tools, or upstream documentation when useful.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before posting
+      options:
+        - label: I searched existing issues and discussions for similar proposals.
+          required: true
+        - label: I have not included secrets, credentials, private infrastructure details, or unnecessary player data.
+          required: true
